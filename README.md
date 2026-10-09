@@ -48,7 +48,6 @@ The screensaver has no `INTERNET` permission and makes no network requests. It c
 - Thin luminous filaments loop and drift around an abstract central field.
 - Choose solar amber or polar blue light, strand density, motion speed, and glow intensity.
 - Randomize each control independently or choose a new combination on every start.
-- Choose Random for any setting or randomize all choices at each screensaver start.
 - Open a remote-friendly settings page and full-screen preview from the TV launcher.
 - The renderer uses an OpenGL ES 2.0 fragment shader with no bundled media, video decoder, or runtime dependency.
 
@@ -119,7 +118,7 @@ These are direct captures from a running Android TV emulator after the scene set
 | Physical Android TV | Not tested. We are looking for an Android TV owner to test installation, selection, idle activation, and remote settings. Please report model, Android version/API, resolution, and results in the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 | Physical Google TV | Not tested. We are looking for a Google TV owner to test installation, selection, idle activation, and remote settings. Please report model, Android version/API, resolution, and results in the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 
-No physical TV will be used for testing without Jeremy's request. No claim is made about physical 4K rendering or thermal behavior until those tests are performed.
+Physical-device 4K output and thermal behavior have not been verified.
 
 ## Building and testing
 
