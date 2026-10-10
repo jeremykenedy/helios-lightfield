@@ -15,12 +15,29 @@ The emulator was not changed from its original system state: screensaver compone
 
 The DreamService service metadata and app-owned settings provider are verified in the built APK. Automatic DreamService activation remains unverified because this emulator image does not expose the screensaver settings route. The emulator does not establish physical-device behavior, native 4K composition, thermal behavior, or Fire OS idle startup.
 
+## Fire TV check
+
+| Device | OS/API | Resolution | Verified |
+|---|---|---:|---|
+| Insignia Fire TV Edition (AFTDEC012E) | Fire OS 8.1.8.5 / Android 11 (API 30) | 1920x1080 | Installed and updated in place over 1.0.0 with the same signing certificate; selected as the screensaver and started as the running dream (`mCurrentDreamName` confirmed); animation rendered and changed between captures. |
+
+Frame rates were read from the compositor (`dumpsys SurfaceFlinger --latency`) on the scene's SurfaceView while the dream ran:
+
+| Build | Strands | Frames per second |
+|---|---:|---:|
+| 1.0.0, full 1920x1080 | 6 | 7.6 |
+| 1.0.1 | 4 | 54 |
+| 1.0.1 | 6 | 55 |
+| 1.0.1 | 9 | 55 |
+
+1.0.1 draws the scene at a size that keeps the shading work per frame constant for each strand count and lets the display scale it to full screen. Idle activation by the TV's own timer, uninstall, and sleep/wake behavior were not checked.
+
 ## Physical device matrix
 
 | Platform | Status | Test request |
 |---|---|---|
-| Fire TV | Untested on physical hardware | We are looking for a Fire TV owner to test install, screensaver selection and idle activation, remote settings, update, uninstall, and sleep/wake behavior. Please report model, Fire OS/API, display resolution, steps, and results through the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
+| Fire TV | Install, update, selection, rendering and frame rate checked on one Insignia Fire TV Edition (see above) | We are looking for owners of other Fire TV models to test idle activation, remote settings, uninstall, and sleep/wake behavior. Please report model, Fire OS/API, display resolution, steps, and results through the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 | Android TV | Untested on physical hardware | We are looking for an Android TV owner to test install, screensaver selection and idle activation, remote settings, update, uninstall, and sleep/wake behavior. Please report model, Android version/API, display resolution, steps, and results through the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 | Google TV | Untested on physical hardware | We are looking for a Google TV owner to test install, ambient display selection and idle activation, remote settings, update, uninstall, and sleep/wake behavior. Please report model, Android version/API, display resolution, steps, and results through the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 
-No physical TV has been used for testing. A device emulator does not establish Fire OS behavior, native 4K output, thermal behavior, or vendor-specific idle activation.
+One physical Fire TV has been used for testing. A device emulator does not establish Fire OS behavior, native 4K output, thermal behavior, or vendor-specific idle activation.
