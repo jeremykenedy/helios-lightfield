@@ -77,4 +77,18 @@ public class LightOptionsTest {
     assertEquals(16f / 9f, LightGeometry.aspectScale(1920, 1080), 0.001f);
     assertEquals(2.3f, LightGeometry.aspectScale(3840, 1000), 0f);
   }
+
+  @Test
+  public void renderSizeKeepsShadingWorkWithinTheTvBudget() {
+    for (float density : new float[] {4f, 6f, 9f}) {
+      float scale = LightGeometry.renderScale(density);
+      assertEquals(LightGeometry.PIXEL_BUDGET, scale * scale * density, 0.0001f);
+    }
+    assertEquals(679, LightGeometry.renderSize(1920, 6f));
+    assertEquals(382, LightGeometry.renderSize(1080, 6f));
+    assertTrue(LightGeometry.renderSize(1920, 9f) < LightGeometry.renderSize(1920, 4f));
+    assertEquals(LightGeometry.renderScale(1f), LightGeometry.renderScale(0f), 0f);
+    assertEquals(1, LightGeometry.renderSize(1, 6f));
+    assertEquals(1, LightGeometry.renderSize(0, 6f));
+  }
 }

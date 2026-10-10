@@ -72,6 +72,15 @@ final class HeliosLightfieldSceneView extends GLSurfaceView implements GLSurface
     setRenderMode(RENDERMODE_WHEN_DIRTY);
   }
 
+  @Override
+  protected void onSizeChanged(int width, int height, int oldWidth, int oldHeight) {
+    super.onSizeChanged(width, height, oldWidth, oldHeight);
+    getHolder()
+        .setFixedSize(
+            LightGeometry.renderSize(width, options.density),
+            LightGeometry.renderSize(height, options.density));
+  }
+
   void start() {
     running = true;
     setRenderMode(RENDERMODE_CONTINUOUSLY);
@@ -111,7 +120,6 @@ final class HeliosLightfieldSceneView extends GLSurfaceView implements GLSurface
     GLES20.glUniform1f(glowLocation, options.glow);
     GLES20.glUniform1f(densityLocation, options.density);
     GLES20.glUniform1f(paletteLocation, options.palette);
-    float aspect = (float) width / Math.max(1, height);
     GLES20.glUniform2f(aspectLocation, LightGeometry.aspectScale(width, height), 1f);
     int position = GLES20.glGetAttribLocation(program, "aPosition");
     GLES20.glEnableVertexAttribArray(position);

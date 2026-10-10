@@ -8,8 +8,8 @@ ANDROID_JAR="$SDK/platforms/android-36/android.jar"
 OUT="$ROOT/build"
 KEYSTORE="${HELIOS_LIGHTFIELD_KEYSTORE:-$HOME/.android/helios-lightfield.jks}"
 KEYPASS="${HELIOS_LIGHTFIELD_KEYPASS:-$HOME/.android/helios-lightfield.pass}"
-VERSION_NAME="${VERSION_NAME:-1.0.0}"
-VERSION_CODE="${VERSION_CODE:-1}"
+VERSION_NAME="${VERSION_NAME:-1.0.1}"
+VERSION_CODE="${VERSION_CODE:-2}"
 SIGN_APK="${SIGN_APK:-true}"
 
 for tool in javac keytool openssl zip; do

@@ -114,7 +114,7 @@ These are direct captures from a running Android TV emulator after the scene set
 | Platform | Result |
 |---|---|
 | Android TV emulator | Preview animation, settings screen, and settings provider verified on Android 12/API 31 at 1920x1080. DreamService idle activation was not available in the emulator image. Details are in [verification](docs/VERIFICATION.md). |
-| Physical Fire TV | Not tested. We are looking for a Fire TV owner to test installation, selection, idle activation, and remote settings. Please report model, Fire OS/API, resolution, and results in the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
+| Physical Fire TV | Installation, update, selection and rendering checked on an Insignia Fire TV Edition (Fire OS 8.1.8.5, API 30) at about 55 frames per second. Idle activation by the TV's timer and sleep/wake were not checked; reports from other models are welcome in the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). Details are in [verification](docs/VERIFICATION.md). |
 | Physical Android TV | Not tested. We are looking for an Android TV owner to test installation, selection, idle activation, and remote settings. Please report model, Android version/API, resolution, and results in the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 | Physical Google TV | Not tested. We are looking for a Google TV owner to test installation, selection, idle activation, and remote settings. Please report model, Android version/API, resolution, and results in the [issue tracker](https://github.com/jeremykenedy/helios-lightfield/issues). |
 
@@ -140,11 +140,11 @@ Host tests verify setting resolution, provider validation, and geometry bounds w
 - [CI](docs/CI.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [Release process](docs/RELEASING.md)
-- [Release notes](docs/releases/v1.0.0.md)
+- [Release notes](docs/releases/v1.0.1.md)
 
 ## Release notes
 
-See [Helios Lightfield 1.0.0](docs/releases/v1.0.0.md) for the initial stable release.
+See [Helios Lightfield 1.0.1](docs/releases/v1.0.1.md) for the latest release and [Helios Lightfield 1.0.0](docs/releases/v1.0.0.md) for the initial stable release.
 
 ## License
 
